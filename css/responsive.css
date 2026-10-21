@@ -1,0 +1,78 @@
+/* ==========================================================================
+   QuickBite Responsive Layouts & Breakpoints
+   Mobile-First with smooth adaptation to tablets and desktops
+   ========================================================================== */
+
+/* Tablet (768px and up) */
+@media (min-width: 768px) {
+  body {
+    padding-bottom: 0; /* No bottom nav needed on tablet/desktop */
+  }
+
+  .mobile-bottom-nav {
+    display: none;
+  }
+
+  .desktop-nav {
+    display: flex;
+  }
+
+  .hero-title {
+    font-size: 2.6rem;
+  }
+
+  .recipe-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .recipe-meta-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .modal-overlay {
+    align-items: center;
+    padding: var(--space-md);
+  }
+
+  .modal-container {
+    max-height: 88vh;
+    border-radius: var(--radius-xl);
+  }
+
+  .planner-days-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop (1024px and up) */
+@media (min-width: 1024px) {
+  .hero-content {
+    padding: var(--space-2xl) var(--space-xl);
+    max-width: 750px;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .recipe-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+  }
+
+  .planner-days-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .filter-controls-row {
+    flex-wrap: nowrap;
+  }
+}
+
+/* Wide Screens (1280px and up) */
+@media (min-width: 1280px) {
+  .planner-days-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

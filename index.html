@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickBite | Fast 15-30 Min Indian Meals for College Students</title>
+  <meta name="description" content="QuickBite helps college students cook delicious, budget-friendly Indian vegetarian meals in 15 to 30 minutes. Features an ingredient-based recipe finder, smart weekly meal planner, and interactive step-by-step cooking timer.">
+  <meta name="keywords" content="student recipes, quick indian recipes, vegetarian meals, hostel cooking, budget meals, meal planner">
+
+  <!-- Favicon icon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍛</text></svg>">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Sticky Header -->
+  <header class="site-header" id="main-header">
+    <div class="app-container">
+      <div class="header-inner">
+        <!-- Logo -->
+        <div class="brand-logo" id="brand-logo" role="button" tabindex="0" aria-label="QuickBite Home">
+          <div class="brand-icon-wrapper">
+            <span>⚡</span>
+          </div>
+          <div>
+            <div class="brand-name">Quick<span>Bite</span></div>
+            <span class="brand-sub">Student Kitchen</span>
+          </div>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav" id="desktop-nav" aria-label="Main Navigation">
+          <button class="nav-link active" data-nav="home">
+            <span>🏠</span> Home
+          </button>
+          <button class="nav-link" data-nav="explore">
+            <span>🔍</span> Recipes
+          </button>
+          <button class="nav-link" data-nav="pantry">
+            <span>🧺</span> Pantry Match
+          </button>
+          <button class="nav-link" data-nav="planner">
+            <span>📅</span> Meal Planner
+          </button>
+          <button class="nav-link" data-nav="favorites">
+            <span>❤️</span> Favorites <span class="badge-counter" id="fav-count-badge">0</span>
+          </button>
+          <button class="nav-link" data-nav="timer">
+            <span>⏱️</span> Timer
+          </button>
+        </nav>
+
+        <!-- Right Header Actions -->
+        <div class="header-actions">
+          <!-- Active Timer Mini Pill -->
+          <div class="nav-timer-pill" id="nav-timer-pill" title="Click to view cooking timer" role="button" tabindex="0">
+            <span>⏱️</span>
+            <span id="nav-timer-text">05:00</span>
+          </div>
+
+          <!-- Dark/Light Theme Toggle -->
+          <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Dark/Light Mode" title="Toggle Theme">
+            <span id="theme-icon">🌙</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main View Container -->
+  <main class="app-container" id="main-content">
+
+    <!-- ====================================================================
+         VIEW 1: HOME DASHBOARD
+         ==================================================================== -->
+    <section class="view-section active" id="view-home">
+      <!-- Hero Banner -->
+      <div class="hero-banner">
+        <div class="hero-bg-wrapper">
+          <img src="assets/hero.jpg" alt="Indian Student Cooking Spread" class="hero-bg-img" onerror="this.src='assets/poha.jpg'">
+        </div>
+        <div class="hero-content">
+          <div class="hero-tag">⚡ Made for Busy Students</div>
+          <h1 class="hero-title" id="hero-greeting">Cook Fresh in <span>15–30 Mins</span>. Zero Stress.</h1>
+          <p class="hero-subtitle">
+            Ditch expensive takeout and boring mess food. Discover affordable, high-flavor Indian vegetarian meals designed specifically for hostel rooms, single pans, and exam-week crunches.
+          </p>
+          <div class="hero-stats-row">
+            <div class="hero-stat-item">
+              <span class="hero-stat-icon">⏱️</span>
+              <div>
+                <div class="hero-stat-number">15–25 min</div>
+                <div class="hero-stat-label">Avg. Prep & Cook</div>
+              </div>
+            </div>
+            <div class="hero-stat-item">
+              <span class="hero-stat-icon">💸</span>
+              <div>
+                <div class="hero-stat-number">₹20–₹40</div>
+                <div class="hero-stat-label">Avg. Cost per Plate</div>
+              </div>
+            </div>
+            <div class="hero-stat-item">
+              <span class="hero-stat-icon">🍳</span>
+              <div>
+                <div class="hero-stat-number">1 Pan</div>
+                <div class="hero-stat-label">Minimal Washing Up</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Category Filter Chips -->
+      <div class="section-header-row">
+        <div>
+          <h2 class="section-title">⚡ Quick Meal Suggestions</h2>
+          <p class="section-subtitle">Speedy Indian comfort food tested for college life</p>
+        </div>
+        <button class="btn btn-secondary btn-sm" id="btn-see-all-recipes">View All Recipes &rarr;</button>
+      </div>
+
+      <div class="filter-pills-row" id="home-category-pills">
+        <button class="filter-pill active" data-filter="all">All Suggestions</button>
+        <button class="filter-pill" data-filter="Under 15 Mins">⚡ Under 15 Mins</button>
+        <button class="filter-pill" data-filter="High Protein">💪 High Protein</button>
+        <button class="filter-pill" data-filter="Single Pot">🍲 Single Pot / Pan</button>
+        <button class="filter-pill" data-filter="Budget Pick">💰 Under ₹30</button>
+        <button class="filter-pill" data-filter="Exam Week Brain Food">🧠 Exam Fuel</button>
+      </div>
+
+      <!-- Home Recipes Grid -->
+      <div class="recipe-cards-grid" id="home-recipes-grid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         VIEW 2: RECIPE EXPLORE & SEARCH
+         ==================================================================== -->
+    <section class="view-section" id="view-explore">
+      <div class="search-filter-section">
+        <div class="search-input-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="recipe-search-input" class="search-input" placeholder="Search by name, ingredient (e.g. paneer, poha), or meal type...">
+          <button class="search-clear-btn hidden" id="search-clear-btn" aria-label="Clear Search">&times;</button>
+        </div>
+
+        <div class="filter-pills-row" id="explore-meal-pills">
+          <button class="filter-pill active" data-meal="all">All Meals</button>
+          <button class="filter-pill" data-meal="breakfast">☀️ Breakfast</button>
+          <button class="filter-pill" data-meal="lunch">🍛 Lunch</button>
+          <button class="filter-pill" data-meal="dinner">🌙 Dinner</button>
+          <button class="filter-pill" data-meal="snack">🍿 Quick Snacks</button>
+        </div>
+
+        <div class="filter-controls-row">
+          <div style="display:flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+            <select id="time-filter-select" class="filter-select" aria-label="Filter by time">
+              <option value="all">Any Cooking Time</option>
+              <option value="12">⚡ 12 mins or less</option>
+              <option value="15">⏱️ 15 mins or less</option>
+              <option value="20">⏱️ 20 mins or less</option>
+              <option value="30">⏱️ 30 mins or less</option>
+            </select>
+
+            <select id="difficulty-filter-select" class="filter-select" aria-label="Filter by difficulty">
+              <option value="all">Any Difficulty</option>
+              <option value="Super Easy">🟢 Super Easy</option>
+              <option value="Easy">🟡 Easy</option>
+            </select>
+
+            <select id="sort-select" class="filter-select" aria-label="Sort recipes">
+              <option value="time-asc">⏱️ Fastest First</option>
+              <option value="cost-asc">💰 Lowest Cost First</option>
+              <option value="protein-desc">💪 Highest Protein</option>
+              <option value="title-asc">🔤 Alphabetical (A-Z)</option>
+            </select>
+          </div>
+
+          <span class="results-count-text" id="search-results-count">Showing 16 recipes</span>
+        </div>
+      </div>
+
+      <div class="recipe-cards-grid" id="explore-recipes-grid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         VIEW 3: PANTRY / INGREDIENT-BASED RECIPE FINDER
+         ==================================================================== -->
+    <section class="view-section" id="view-pantry">
+      <div class="pantry-header-card">
+        <div class="pantry-title-row">
+          <div>
+            <h2 class="section-title">🧺 What's in your Kitchen / Hostel?</h2>
+            <p class="section-subtitle">Select or type ingredients you have, and we'll calculate what you can cook right now!</p>
+          </div>
+          <button class="btn btn-secondary btn-sm" id="btn-clear-pantry">Clear All</button>
+        </div>
+
+        <!-- Add Custom Ingredient Input -->
+        <form id="pantry-add-form" class="pantry-input-box">
+          <input type="text" id="pantry-custom-input" class="pantry-input" placeholder="Type an ingredient (e.g. cheese, capsicum) and press Add...">
+          <button type="submit" class="btn btn-primary btn-sm">+ Add</button>
+        </form>
+
+        <!-- Common Produce -->
+        <div class="pantry-category-group">
+          <div class="pantry-cat-title">Fresh Veggies & Produce</div>
+          <div class="pantry-chips-wrap" id="pantry-produce-chips">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Common Pantry Grains & Staples -->
+        <div class="pantry-category-group">
+          <div class="pantry-cat-title">Grains, Pulses & Snacks</div>
+          <div class="pantry-chips-wrap" id="pantry-grains-chips">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Dairy & Protein -->
+        <div class="pantry-category-group">
+          <div class="pantry-cat-title">Dairy & Protein</div>
+          <div class="pantry-chips-wrap" id="pantry-dairy-chips">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </div>
+
+      <div class="section-header-row">
+        <div>
+          <h3 class="section-title">Matching Indian Recipes</h3>
+          <p class="section-subtitle">Ranked by highest ingredient match rate</p>
+        </div>
+      </div>
+
+      <div class="recipe-cards-grid" id="pantry-matched-grid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         VIEW 4: WEEKLY MEAL PLANNER
+         ==================================================================== -->
+    <section class="view-section" id="view-planner">
+      <div class="planner-action-bar">
+        <div>
+          <h2 class="section-title">📅 Student Weekly Meal Planner</h2>
+          <p class="section-subtitle">Plan your week in advance to eliminate daily cooking fatigue and reduce waste</p>
+        </div>
+        <div style="display:flex; gap: 8px; flex-wrap: wrap;">
+          <button class="btn btn-primary" id="btn-auto-plan">
+            ✨ Auto-Plan My Week
+          </button>
+          <button class="btn btn-secondary" id="btn-open-grocery">
+            🛒 Grocery List
+          </button>
+          <button class="btn btn-secondary btn-sm" id="btn-clear-plan" title="Reset Week">
+            Reset
+          </button>
+        </div>
+      </div>
+
+      <div class="planner-days-grid" id="planner-days-grid">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         VIEW 5: FAVORITES SECTION
+         ==================================================================== -->
+    <section class="view-section" id="view-favorites">
+      <div class="section-header-row">
+        <div>
+          <h2 class="section-title">❤️ Your Saved Recipes</h2>
+          <p class="section-subtitle">Your personal go-to quick bites stored on this device</p>
+        </div>
+      </div>
+
+      <div class="recipe-cards-grid" id="favorites-recipes-grid">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <!-- Empty State -->
+      <div class="pantry-header-card hidden" id="favorites-empty-state" style="text-align: center; padding: 48px 24px;">
+        <span style="font-size: 3rem; display: block; margin-bottom: 12px;">🍲</span>
+        <h3 class="section-title">No favorites saved yet!</h3>
+        <p class="section-subtitle" style="margin-bottom: 24px;">Tap the heart icon on any recipe card to save it for quick access.</p>
+        <button class="btn btn-primary" id="btn-explore-from-favs">Discover Quick Recipes</button>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         VIEW 6: COOKING TIMER
+         ==================================================================== -->
+    <section class="view-section" id="view-timer">
+      <div class="timer-hero-card">
+        <h2 class="section-title" style="margin-bottom: 4px;">⏱️ Cooking Timer</h2>
+        <p class="section-subtitle" style="margin-bottom: 24px;">Keep your tadka, boiling dal, or toasted bread from burning</p>
+
+        <!-- Circular Visual Gauge -->
+        <div class="timer-circle-container">
+          <svg class="timer-svg" viewBox="0 0 200 200">
+            <circle class="timer-circle-bg" cx="100" cy="100" r="88"></circle>
+            <circle class="timer-circle-progress" id="timer-svg-circle" cx="100" cy="100" r="88" stroke-dasharray="552.92" stroke-dashoffset="0"></circle>
+          </svg>
+          <div class="timer-digital-display">
+            <div class="timer-digits" id="timer-large-digits">05:00</div>
+            <div class="timer-label-text" id="timer-active-label">Cooking Timer</div>
+          </div>
+        </div>
+
+        <!-- Quick Presets -->
+        <div class="timer-presets-row">
+          <button class="timer-preset-btn" data-preset="120">2m (Maggi / Tadka)</button>
+          <button class="timer-preset-btn" data-preset="300">5m (Sautéing)</button>
+          <button class="timer-preset-btn" data-preset="600">10m (Boiling Dal)</button>
+          <button class="timer-preset-btn" data-preset="900">15m (Rice / Khichdi)</button>
+        </div>
+
+        <!-- Controls -->
+        <div class="timer-controls-row">
+          <button class="btn btn-secondary" id="btn-timer-reset">Reset</button>
+          <button class="btn btn-primary" id="btn-timer-toggle" style="min-width: 130px;">
+            <span id="btn-timer-icon">▶</span> <span id="btn-timer-label">Start</span>
+          </button>
+          <button class="btn btn-secondary" id="btn-timer-plus1">+1 Min</button>
+        </div>
+
+        <!-- Custom Duration Form -->
+        <div class="timer-custom-inputs">
+          <label style="font-size:0.85rem; font-weight:700; color:var(--text-muted);">Custom:</label>
+          <input type="number" id="custom-timer-mins" class="timer-num-input" min="0" max="120" value="5" aria-label="Minutes">
+          <span style="font-weight:800; color:var(--text-muted);">m</span>
+          <input type="number" id="custom-timer-secs" class="timer-num-input" min="0" max="59" value="0" aria-label="Seconds">
+          <span style="font-weight:800; color:var(--text-muted);">s</span>
+          <button class="btn btn-secondary btn-sm" id="btn-set-custom-timer">Set</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================================
+       MODAL 1: RECIPE DETAILS & COOKING ASSISTANT
+       ====================================================================== -->
+  <div class="modal-overlay hidden" id="recipe-modal" role="dialog" aria-modal="true">
+    <div class="modal-container" id="recipe-modal-content">
+      <!-- Injected by ModalController in modal.js -->
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       MODAL 2: PLAN PICKER (Assign recipe to day + meal)
+       ====================================================================== -->
+  <div class="modal-overlay hidden" id="plan-picker-modal" role="dialog" aria-modal="true">
+    <div class="dialog-modal" id="plan-picker-content">
+      <!-- Injected by ModalController -->
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       MODAL 3: GROCERY SHOPPING LIST MODAL
+       ====================================================================== -->
+  <div class="modal-overlay hidden" id="grocery-modal" role="dialog" aria-modal="true">
+    <div class="dialog-modal" style="max-width: 540px;">
+      <div class="picker-header">
+        <div>
+          <h3 class="section-title">🛒 Weekly Grocery List</h3>
+          <p class="section-subtitle">Aggregated ingredients for all planned meals</p>
+        </div>
+        <button class="modal-close-btn" id="close-grocery-btn">&times;</button>
+      </div>
+
+      <div id="grocery-list-container" style="max-height: 55vh; overflow-y: auto; margin-bottom: var(--space-md);">
+        <!-- Injected by JS -->
+      </div>
+
+      <div style="display:flex; gap: 8px;">
+        <button class="btn btn-primary btn-block" id="btn-copy-grocery">📋 Copy to Clipboard</button>
+        <button class="btn btn-secondary" id="btn-print-grocery">🖨️ Print</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom Navigation Bar -->
+  <nav class="mobile-bottom-nav" id="mobile-nav" aria-label="Mobile Navigation">
+    <button class="m-nav-item active" data-nav="home">
+      <span class="m-icon">🏠</span>
+      <span>Home</span>
+    </button>
+    <button class="m-nav-item" data-nav="explore">
+      <span class="m-icon">🔍</span>
+      <span>Search</span>
+    </button>
+    <button class="m-nav-item" data-nav="pantry">
+      <span class="m-icon">🧺</span>
+      <span>Pantry</span>
+    </button>
+    <button class="m-nav-item" data-nav="planner">
+      <span class="m-icon">📅</span>
+      <span>Plan</span>
+    </button>
+    <button class="m-nav-item" data-nav="favorites">
+      <span class="m-icon">❤️</span>
+      <span>Saved</span>
+      <span class="m-nav-badge" id="m-fav-badge">0</span>
+    </button>
+    <button class="m-nav-item" data-nav="timer">
+      <span class="m-icon">⏱️</span>
+      <span>Timer</span>
+    </button>
+  </nav>
+
+  <!-- Notification Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Application Script (Supports both direct file:// opening and http:// local server) -->
+  <script src="js/bundle.js"></script>
+</body>
+</html>
